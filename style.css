@@ -182,7 +182,7 @@ section {
   margin: 0 auto;
 }
 
-.flow-content > * + * {
+.flow-content>*+* {
   margin-top: var(--flow-spacer, 1em);
 }
 
@@ -191,11 +191,11 @@ section {
   flex-direction: column;
 }
 
-.split > * + * {
+.split>*+* {
   margin: 4rem 0 0 0;
 }
 
-.split > * {
+.split>* {
   flex-basis: 100%;
 }
 
@@ -204,7 +204,7 @@ section {
     flex-direction: row;
   }
 
-  .split > * + * {
+  .split>*+* {
     margin: 0 0 0 2.5rem;
   }
 }
@@ -219,7 +219,30 @@ section {
   border-radius: var(--br);
   padding: 2rem;
   background-color: var(--clr-primary-400);
+  background-size: cover;
   min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.primary-header .container {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.primary-header .container>* {
+  max-width: 12ch;
+}
+
+.page-home .primary-header {
+  background-image: url(img/hero.jpg);
+  background-position: center center;
+}
+
+.page-blog .primary-header {
+  background-image: url(img/blog.jpg);
+  background-position: left center;
 }
 
 .primary-nav {
@@ -273,6 +296,30 @@ section {
   }
 }
 
+.secondary-navigation {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.secondary-navigation>a:last-child {
+  margin-left: auto;
+}
+
+.categories {
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.categories button {
+  cursor: pointer;
+  font-size: var(--fs-200);
+  text-transform: uppercase;
+  background: transparent;
+  border: 0;
+}
+
 .article-preview h3 {
   font-size: var(--fs-500);
 }
@@ -283,26 +330,25 @@ section {
   width: 100%;
 }
 
-.article-preview__info {
+.article-preview .info {
   display: flex;
   font-weight: var(--fw-400);
   font-size: var(--fs-200);
   color: var(--clr-neutral-400);
 }
 
-.article-preview__info > *:first-child {
+.article-preview .info>*:first-child {
   margin-right: 2rem;
 }
 
 .call-to-action form {
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  width: 80%;
-  margin: 4rem auto 0;
 }
 
-.call-to-action form > div {
+.call-to-action form>div {
   flex-basis: 100%;
   flex-shrink: 1;
   flex-grow: 1;
@@ -338,7 +384,6 @@ section {
 @media (min-width: 40em) {
   .call-to-action form {
     flex-direction: row;
-    width: 100%;
   }
 
   .call-to-action button {
@@ -362,7 +407,7 @@ section {
   display: flex;
 }
 
-.footer-nav > *:first-child {
+.footer-nav>*:first-child {
   margin-right: 4em;
 }
 
@@ -389,53 +434,67 @@ section {
   grid-template-columns: repeat(6, 1fr);
 }
 
-.article-grid > * {
+.article-grid>* {
   grid-column: 1 / -1;
 }
 
 @media (min-width: 30em) {
-  .article-grid > *:not(:first-child) {
+  .article-grid>*:not(:first-child) {
     grid-column: span 3;
   }
 }
 
+.article-preview--featured > h3,
+.article-preview--featured > p,
+.article-preview--featured .info {
+  margin-top: 1em;
+}
+
 @media (min-width: 40em) {
-  .article-grid > *:first-child {
+  .article-grid>*:first-child {
     grid-column: 1 / -1;
   }
 
-  .article-grid > .article-preview:first-child {
+  .article-preview--featured {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr min-content 1fr;
     gap: 1em 2em;
   }
 
-  .article-grid > .article-preview:first-child img {
+  .article-preview--featured h3,
+  .article-preview--featured p,
+  .article-preview--featured .info {
+    margin-top: 0;
+  }
+
+  .article-preview--featured img {
     grid-row: span 3;
     height: 17.5rem;
   }
 
-  .article-grid > .article-preview:first-child > h3 {
+  .article-preview--featured>h3 {
     margin-top: auto;
   }
 
-  .article-grid > *:nth-child(2),
-  .article-grid > *:nth-child(3) {
+  .article-grid>*:nth-child(2),
+  .article-grid>*:nth-child(3) {
     grid-column: span 3;
   }
-  .article-grid > *:nth-child(4),
-  .article-grid > *:nth-child(5),
-  .article-grid > *:nth-child(6) {
+
+  .article-grid>*:nth-child(4),
+  .article-grid>*:nth-child(5),
+  .article-grid>*:nth-child(6) {
     grid-column: span 2;
   }
-  .article-grid > *:nth-child(7),
-  .article-grid > *:nth-child(8) {
+
+  .article-grid>*:nth-child(7),
+  .article-grid>*:nth-child(8) {
     grid-column: span 3;
   }
 
   .advertisement {
     background: black;
-    color: white;
+    color: var(--clr-neutral-100);
   }
 }
