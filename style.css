@@ -245,7 +245,8 @@ section {
 .page-home .primary-header {
   background-image: url(img/hero.svg);
   background-position: center center;
-
+  background-color: var(--clr-neutral-100);
+  background-size: contain;
 }
 
 .page-blog .primary-header {
