@@ -110,16 +110,22 @@ h3,
   font-weight: var(--fw-200);
 }
 
-a {
+a, .logo {
   font-weight: var(--fw-700);
   font-size: var(--fs-300);
   color: var(--clr-neutral-900);
+  text-decoration: none;
 }
 
 a:hover,
 a:focus {
   color: var(--clr-primary-400);
 }
+
+.u-padding-x {
+  padding-left: 2em;
+  padding-right: 2em;
+} 
 
 .text-500 {
   font-size: var(--fs-500);
@@ -277,6 +283,7 @@ section {
   border-radius: var(--br);
   background: var(--clr-neutral-900);
   font-family: var(--ff-serif);
+  z-index: 10;
 }
 
 .primary-nav ul {
@@ -461,11 +468,7 @@ section {
   border-top: var(--border);
   border-bottom: var(--border);
   padding: 3em 0;
-  margin: 2em 0;
-}
-
-.primary-footer {
-  padding-bottom: 1em;
+  margin: 2em 0 0;
 }
 
 .footer-nav {
